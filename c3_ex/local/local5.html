@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Missing localStorage items?</h2>
+<button onclick="createItems()">Create local storage items</button>
+<br><br>
+<h2>Remove Items</h2>
+<button onclick="deleteItems()">Delete items</button>
+<br><br>
+<h2>Display Items</h2>
+<button onclick="displayItems()">Display items</button>
+<br><br>
+<p id="demo"></p>
+
+<script>
+function createItems() {
+  localStorage.setItem("mytime", Date.now());
+  localStorage.setItem("myname", "John");
+  localStorage.setItem("myage", 36);
+}
+
+function deleteItems() {
+  localStorage.clear();
+}
+
+function displayItems() {
+  var l, i;
+  document.getElementById("demo").innerHTML = "";
+  for (i = 0; i < localStorage.length; i++) {
+  x = localStorage.key(i);
+  y = localStorage.getItem(x);
+  document.getElementById("demo").innerHTML += x + " : " + y +"<br>";
+  }
+}
+</script>
+
+</body>
+</html>
