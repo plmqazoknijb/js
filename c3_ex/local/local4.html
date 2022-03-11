@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html><meta charset="utf-8">
+<html>
 <body>
-
+<h2>Missing localStorage items?</h2>
+<button onclick="createItems()">Create local storage items</button>
+<br><br>
+<h2>Remove Items</h2>
+<button onclick="deleteItems()">Delete items</button>
+<br><br>
+<h2>Display Items</h2>
+<button onclick="displayItems()">Display items</button>
+<br><br>
+<p id="demo"></p>
 
 <script>
-  function createItems() {
-    localStorage.setItem("mytime", Date.now());
-    localStorage.setItem("myname", "Yoon");
-    localStorage.setItem("myage", 20);
+function createItems() {
+  localStorage.setItem("mytime", Date.now());
+  localStorage.setItem("myname", "John");
+  localStorage.setItem("myage", 36);
+}
+
+function deleteItems() {
+  localStorage.clear();
+}
+
+function displayItems() {
+  var l, i;
+  document.getElementById("demo").innerHTML = "";
+  for (i = 0; i < localStorage.length; i++) {
+  x = localStorage.key(i);
+  document.getElementById("demo").innerHTML += x + "<br>";
   }
-  
-  function displayItems() {
-    var l, i;
-    document.getElementById("demo").innerHTML = "";
-    for (i = 0; i < localStorage.length; i++) {
-    x = localStorage.key(i);
-    document.getElementById("demo").innerHTML += x + "<br>";
-    }
-  }
-  
-  function deleteItems() {
-    localStorage.clear();
-  }
-  </script>
-  
+}
+</script>
 
 </body>
 </html>
